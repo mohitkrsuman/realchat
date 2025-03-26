@@ -29,11 +29,6 @@ export const authOptions: NextAuthOptions = {
     GoogleProvider({
       clientId: getGoogleCredentials().clientId,
       clientSecret: getGoogleCredentials().clientSecret,
-      authorization: {
-        params: {
-          redirect_uri: "http://localhost:3000/login",
-        }, 
-      },
     }),
   ],
   callbacks: {
