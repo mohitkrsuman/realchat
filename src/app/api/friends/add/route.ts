@@ -21,7 +21,10 @@ export async function POST(req: Request) {
     );
 
     const data = (await RESTResponse.json()) as { result: string };
-    const idToAdd = await fetchRedis('get', `user:email:${emailToAdd}`) as string;
+    const idToAdd = (await fetchRedis(
+      "get",
+      `user:email:${emailToAdd}`
+    )) as string;
 
     if (!idToAdd) {
       return new Response("This person does not exist", { status: 400 });
@@ -48,7 +51,6 @@ export async function POST(req: Request) {
       return new Response("Already added this user", { status: 400 });
     }
 
-    //
     // when you are my friend, i am your friend as well
     const isAlreadyFriends = (await fetchRedis(
       "sismember",
