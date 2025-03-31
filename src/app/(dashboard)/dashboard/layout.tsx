@@ -40,8 +40,6 @@ const layout: FC<LayoutProps> = async ({ children }: LayoutProps) => {
     )) as User[]
   ).length;
 
-  console.log(unseenRequestCount);
-
   return (
     <div className="w-full flex h-screen">
       <div className="w-full flex h-screen max-w-xs grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6">
